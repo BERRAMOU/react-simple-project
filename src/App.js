@@ -1,24 +1,12 @@
 import React, {Component} from 'react';
 import './App.css';
 import Table from './Table';
+import Form from './Form';
 
 class App extends Component {
     // Define state object
     state = {
-        characters: [
-            {
-                'name': 'MArk zekerbug',
-                'job': 'Facebook founder',
-            },
-            {
-                'name': 'Stev jobs',
-                'job': 'Apple founder',
-            },
-            {
-                'name': 'Stev jobs',
-                'job': 'Apple founder',
-            }
-        ]
+        characters: []
     };
 
     /**
@@ -34,6 +22,10 @@ class App extends Component {
         });
     };
 
+    handleSubmit = character => {
+        this.setState({characters: [this.state.characters, character]})
+    };
+
     render() {
 
         return (
@@ -41,6 +33,9 @@ class App extends Component {
                 <Table
                     characterData={this.state.characters}
                     removeCharacter={this.removeCharacter}
+                />
+                <Form
+                    handleSubmit={this.handleSubmit}
                 />
             </div>
         );
