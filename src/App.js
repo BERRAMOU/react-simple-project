@@ -4,13 +4,27 @@ import Table from './Table';
 
 class App extends Component {
     render() {
-        const name = "azedine";
+        const characters = [
+            {
+                'name': 'MArk zekerbug',
+                'job': 'Facebook founder',
+            },
+            {
+                'name': 'Stev jobs',
+                'job': 'Apple founder',
+            },
+            {
+                'name': 'Stev jobs',
+                'job': 'Apple founder',
+            }
+        ];
+
         return (
             <div className="container">
-                <h1 className="site-heading">Hello, {name} </h1>
-                <Table/>
+                <Table characterData={characters} />
             </div>
         );
+
     }
 }
 

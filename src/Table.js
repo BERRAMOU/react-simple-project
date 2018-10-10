@@ -21,34 +21,34 @@ const TableHeader = () => {
  * @returns {*}
  * @constructor
  */
-const TableBody = () => {
+const TableBody = props => {
+    const rows = props.characterData.map((row, index) => {
+        return (
+            <tr key={index}>
+                <td>{row.name}</td>
+                <td>{row.job}</td>
+            </tr>
+        );
+    });
     return (
         <tbody>
-        <tr>
-            <td>MArk zekerbug</td>
-            <td>FaceBook Founder</td>
-        </tr>
-        <tr>
-            <td>Steve Jobs</td>
-            <td>Apple Founder</td>
-        </tr>
-        <tr>
-            <td>Steve Jobs</td>
-            <td>Apple Founder</td>
-        </tr>
+        {rows}
         </tbody>
     );
 };
+
 
 /**
  *  Table class component
  */
 class Table extends Component {
     render() {
+        const {characterData} = this.props;
+
         return (
             <table>
                 <TableHeader/>
-                <TableBody/>
+                <TableBody characterData={characterData}/>
             </table>
         );
     }
